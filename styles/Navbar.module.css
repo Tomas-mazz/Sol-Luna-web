@@ -1,0 +1,4 @@
+.navPointerWidth {
+    pointer-events: none; /* evita que el nav bloqueé el scroll lateral cuando es más chico */
+    width: 100vw;
+}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import styles from "../../styles/Navbar.module.css"
 
 export default function DesktopBar({ scrolled, navLinks }) {
   const logoSize = scrolled ? 50 : 60;
@@ -30,7 +31,7 @@ export default function DesktopBar({ scrolled, navLinks }) {
             <Link
               key={link.label}
               href={link.href}
-              className="text-white hover:text-gray-300 font-medium transition"
+              className={styles.linkUnderline}
             >
               {link.label}
             </Link>
@@ -38,7 +39,7 @@ export default function DesktopBar({ scrolled, navLinks }) {
         </div>
         {/* Login y carrito */}
         <div className="flex items-center gap-8">
-          <Link href="/login" className="text-white hover:text-gray-300">Iniciar Sesión</Link>
+          <Link href="/login" className="text-gray-400 hover:text-white">Iniciar Sesión</Link>
           <Link href="/checkout" className="text-2xl">🛒</Link>
         </div>
       </div>

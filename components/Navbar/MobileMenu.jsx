@@ -11,6 +11,7 @@ export default function MobileMenu({ menuOpen, setMenuOpen, navLinks }) {
         md:hidden
       `}
     >
+      
       <button
         onClick={() => setMenuOpen(false)}
         className="self-end mb-8"
@@ -18,6 +19,7 @@ export default function MobileMenu({ menuOpen, setMenuOpen, navLinks }) {
       >
         <X className="w-8 h-8" />
       </button>
+
       {navLinks.map(link => (
         <Link
           key={link.label}

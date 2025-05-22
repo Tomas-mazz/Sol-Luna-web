@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../../styles/Navbar.module.css"
+import DesktopNavLinks from "./DesktopNavLinks";
 
 export default function DesktopBar({ scrolled, navLinks }) {
   const logoSize = scrolled ? 50 : 60;
@@ -22,24 +22,16 @@ export default function DesktopBar({ scrolled, navLinks }) {
       `}>
 
         {/* Logo */}
-        <Link href="/" className="flex items-center transition-all duration-300">
+        <Link href="/" className="transition-all duration-300">
           <Image src="/logos/logo.png" alt="Logo" width={logoSize} height={logoSize} />
         </Link>
+
         {/* Links centro */}
-        <div className="flex-1 flex justify-center items-center gap-8">
-          {navLinks.slice(1, 4).map(link => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className={styles.linkUnderline}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+        <DesktopNavLinks navLinks={navLinks} />
+        
         {/* Login y carrito */}
         <div className="flex items-center gap-8">
-          <Link href="/login" className="text-gray-400 hover:text-white">Iniciar Sesión</Link>
+          <Link href="/login" className="text-gray-300 hover:text-white">Iniciar Sesión</Link>
           <Link href="/checkout" className="text-2xl">🛒</Link>
         </div>
       </div>

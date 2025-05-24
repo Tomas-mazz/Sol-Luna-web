@@ -1,63 +1,67 @@
-# Tienda de Mates Sol & Luna
+# Sol & Luna — Tienda de Mates Online
 
-¡Bienvenido/a a la tienda online de mates, materas, bombillas y accesorios Sol & Luna!
-
-Este proyecto es una tienda de e-commerce creada con [Next.js](https://nextjs.org/) y [TailwindCSS](https://tailwindcss.com/) que permite mostrar y vender productos artesanales de la cultura del mate a todo el país.
+Bienvenido/a al repositorio del proyecto **Sol & Luna**, una tienda online de productos de mate. Este proyecto fue desarrollado con **Next.js 15**, **React**, **TailwindCSS** y **CSS Modules**.
 
 ---
 
-## 🚀 Tecnologías principales
+## 🚀 Tecnologías usadas
 
-- [Next.js 14+](https://nextjs.org/) (App Router)
+- [Next.js 15](https://nextjs.org/)
+- [React](https://react.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- React
-- Context API (para el carrito)
-- Vercel (deploy futuro)
+- [CSS Modules](https://nextjs.org/docs/pages/building-your-application/styling/css-modules)
+- [Lucide React Icons](https://lucide.dev/)
 
 ---
 
-## 📁 Estructura de carpetas
+## 📁 Estructura del proyecto
 
-```bash
-/app               # Páginas principales (Home, Sobre Nosotros, Contacto, Login, Checkout)
-/components        # Componentes reutilizables (Navbar, Footer, ProductCard, etc)
-/data              # Datos simulados de productos y beneficios
-/context           # Contextos globales (ej: Carrito)
-/hooks             # Custom hooks
-/styles            # Estilos globales y Tailwind config
-/public            # Imágenes, videos, logos
-/utils             # Helpers y funciones utilitarias
+/components
+/Navbar
+DesktopBar.jsx
+DesktopNavLinks.jsx
+DesktopDropdownMenu.jsx
+MobileMenu.jsx
+MobileDropdownMenu.jsx
+/...otros componentes
 
+/styles
+Navbar.module.css
+...otros estilos
 
----
+/app
+layout.js
+page.js
+...otras páginas y rutas
 
-## 🚀 Funcionalidades principales
-
-- **Navbar profesional, responsiva y desacoplada**:
-  - Navbar superior para desktop y tablet (con animaciones al hacer scroll).
-  - Barra inferior tipo app para mobile.
-  - Menú lateral mobile animado, con overlay y cierre automático.
-- **Links animados** con subrayado (hover underline con transición izquierda→derecha y viceversa).
-- **Preparado para escalabilidad**: estructura lista para agregar dropdowns y submenús en el header.
-- **Diseño limpio, minimalista y enfocado en UX.**
-
----
-
-## 🔧 Tecnologías principales
-
-- [Next.js 14+](https://nextjs.org/)
-- [React 18+](https://react.dev/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Lucide-react](https://lucide.dev/icons/) (iconos SVG)
-- CSS Modules (`/styles/Navbar.module.css`)
+/public
+/logos
+logo.png
 
 ---
 
-## 🛠️ Cómo correr el proyecto
+## 🖥️ Características principales
 
-1. **Cloná el repo**
+- **Navbar completamente responsive:**  
+  - Navbar superior en desktop/tablet con logo a la izquierda, links al centro y login/carrito a la derecha.
+  - Efectos de hover animados en los links, con subrayado que aparece/desaparece con transición.
+  - Dropdown animado en “Productos” mostrando subcategorías (Mates, Bombillas, Yerberas, Materas).
 
-```bash
-git clone https://github.com/tu-usuario/tu-repo.git
-cd tu-repo
+- **Menú mobile profesional:**  
+  - Barra inferior fija con iconos (hamburguesa, logo, carrito).
+  - Menú lateral animado (slide-in) que cubre la pantalla y muestra los links principales.
+  - Submenú desplegable para “Productos” en mobile, con animación y Chevron que rota.
 
+- **Animaciones y UX:**  
+  - Transiciones suaves en todos los menús y dropdowns.
+  - Cierre de menú lateral al hacer click fuera o navegar.
+  - Accesibilidad: soporte para teclado y roles ARIA en botones.
+
+---
+
+## ⚡ Instalación y uso
+
+1. **Cloná el repositorio:**
+   ```bash
+   git clone https://github.com/TU_USUARIO/Sol-Luna-web.git
+   cd Sol-Luna-web

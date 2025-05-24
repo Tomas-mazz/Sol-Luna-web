@@ -4,10 +4,12 @@ import DesktopBar from "./DesktopBar";
 import MobileBar from "./MobileBar";
 import MobileMenu from "./MobileMenu";
 import navLinks from "./NavLinksData";
+import CartDropdown from "./CartDropdown";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -18,15 +20,18 @@ export default function Navbar() {
   return (
     <>
       {/* Barra desktop/tablet */}
-      <DesktopBar scrolled={scrolled} navLinks={navLinks} />
+      <DesktopBar scrolled={scrolled} navLinks={navLinks} cartOpen={cartOpen} setCartOpen={setCartOpen}/>
+
       {/* Barra inferior mobile */}
       <MobileBar setMenuOpen={setMenuOpen} />
+
       {/* Menú lateral mobile */}
       <MobileMenu
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
         navLinks={navLinks}
       />
+      
       {/* Fondo oscuro para menú mobile */}
       {menuOpen && (
         <div

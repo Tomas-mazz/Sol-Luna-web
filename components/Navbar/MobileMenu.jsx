@@ -1,17 +1,17 @@
 import Link from "next/link";
-import { X } from "lucide-react"; // O tu propio SVG
+import { X } from "lucide-react";
+import MobileDropdownMenu from "./MobileDropdownMenu";
+import styles from "../../styles/Navbar.module.css"
 
 export default function MobileMenu({ menuOpen, setMenuOpen, navLinks }) {
   return (
     <div
       className={`
-        fixed top-3/6 left-0 w-3xl border rounded-4xl max-w-xs h-full bg-white text-black z-50 p-6 flex flex-col gap-6
-        transform transition-transform duration-300 ease-in-out
-        ${menuOpen ? "translate-x-0" : "-translate-x-full"}
+        ${styles.mobileMenu}
+        ${menuOpen ? styles.mobileMenuOpen : ""}
         md:hidden
       `}
     >
-      
       <button
         onClick={() => setMenuOpen(false)}
         className="self-end mb-8"
@@ -20,16 +20,28 @@ export default function MobileMenu({ menuOpen, setMenuOpen, navLinks }) {
         <X className="w-8 h-8" />
       </button>
 
-      {navLinks.map(link => (
-        <Link
-          key={link.label}
-          href={link.href}
-          className="text-lg font-semibold"
-          onClick={() => setMenuOpen(false)}
-        >
-          {link.label}
-        </Link>
-      ))}
+      <ul className="flex flex-col gap-3">
+        {navLinks.map(link =>
+          link.dropdown ? (
+            <MobileDropdownMenu
+              key={link.label}
+              label={link.label}
+              items={link.dropdown}
+              onNavigate={() => setMenuOpen(false)}
+            />
+          ) : (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                className="text-lg font-semibold block py-2"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            </li>
+          )
+        )}
+      </ul>
     </div>
   );
 }

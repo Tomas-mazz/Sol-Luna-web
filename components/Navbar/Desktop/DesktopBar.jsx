@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import DesktopNavLinks from "./DesktopNavLinks";
-import CartDropdown from "./CartDropdown";
+import CartDropdown from "../CarDropdown/CartDropdown";
 
 export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }) {
   const logoSize = scrolled ? 50 : 60;
@@ -33,23 +33,24 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
         {/* Login y carrito */}
         <div className="flex items-center gap-8">
           <Link href="/login" className="text-gray-300 hover:text-white">Iniciar Sesión</Link>
-          {/* Carrito */}
-          <div className="relative">
-            <button
-              ref={cartButtonRef}
-              className="text-2xl"
-              onClick={() => setCartOpen(open => !open)}
-              aria-label="Ver carrito"
-            >
-              🛒
-            </button>
-            <CartDropdown
-              open={cartOpen}
-              setOpen={setCartOpen}
-              cartButtonRef={cartButtonRef}
-              cartItems={[]}
-            />
-          </div>
+
+        {/* Carrito */}
+        <div className="relative">
+          <button
+            ref={cartButtonRef}
+            className="text-2xl"
+             onClick={() => setCartOpen(open => !open)}
+             aria-label="Ver carrito"
+          >
+            🛒
+          </button>
+          <CartDropdown
+            open={cartOpen}
+            setOpen={setCartOpen}
+            cartButtonRef={cartButtonRef}
+            cartItems={[]}
+           />
+        </div>
         </div>
       </div>
     </nav>

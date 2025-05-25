@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { X } from "lucide-react";
 import MobileDropdownMenu from "./MobileDropdownMenu";
-import styles from "../../styles/Navbar.module.css"
+import styles from "../../../styles/Navbar.module.css"
 
 export default function MobileMenu({ menuOpen, setMenuOpen, navLinks }) {
   return (

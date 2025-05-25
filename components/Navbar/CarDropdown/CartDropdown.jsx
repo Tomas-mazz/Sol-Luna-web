@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import CartItemList from "./CartItemList";
-import styles from "../../styles/Navbar.module.css"
+import styles from "../../../styles/Navbar.module.css"
 
 export default function CartDropdown({ cartItems = [], open, setOpen, cartButtonRef }) {
   const dropdownRef = useRef();

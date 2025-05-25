@@ -1,10 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import DesktopBar from "./DesktopBar";
-import MobileBar from "./MobileBar";
-import MobileMenu from "./MobileMenu";
+import DesktopBar from "./Desktop/DesktopBar";
+import MobileBar from "./Mobile/MobileBar";
+import MobileMenu from "./Mobile/MobileMenu";
 import navLinks from "./NavLinksData";
-import CartDropdown from "./CartDropdown";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

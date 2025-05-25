@@ -1,6 +1,6 @@
 import Link from "next/link";
 import DesktopDropdownMenu from "./DesktopDropdownMenu";
-import styles from '../../styles/Navbar.module.css';
+import styles from '../../../styles/Navbar.module.css';
 import { ChevronDown } from "lucide-react";
 
 export default function DesktopNavLinks({ navLinks }) {

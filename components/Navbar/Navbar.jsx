@@ -9,6 +9,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const cartItems = []; //temporal para que no de error
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -22,7 +23,7 @@ export default function Navbar() {
       <DesktopBar scrolled={scrolled} navLinks={navLinks} cartOpen={cartOpen} setCartOpen={setCartOpen}/>
 
       {/* Barra inferior mobile */}
-      <MobileBar setMenuOpen={setMenuOpen} />
+      <MobileBar setMenuOpen={setMenuOpen} cartOpen={cartOpen} setCartOpen={setCartOpen} cartItems={cartItems} />
 
       {/* Menú lateral mobile */}
       <MobileMenu

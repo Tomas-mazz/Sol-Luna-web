@@ -2,7 +2,9 @@ import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import DesktopNavLinks from "./DesktopNavLinks";
-import CartDropdown from "../CarDropdown/CartDropdown";
+import CartDropdown from "./CartDropdown";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }) {
   const logoSize = scrolled ? 50 : 60;
@@ -35,14 +37,14 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
           <Link href="/login" className="text-gray-300 hover:text-white">Iniciar Sesión</Link>
 
         {/* Carrito */}
-        <div className="relative">
+        <div className="relative pointer-events-auto">
           <button
             ref={cartButtonRef}
-            className="text-2xl"
+            className="coursor-pointer transition-all duration-300"
              onClick={() => setCartOpen(open => !open)}
              aria-label="Ver carrito"
           >
-            🛒
+            <FontAwesomeIcon icon={faShoppingCart} size="lg" color="white" />
           </button>
           <CartDropdown
             open={cartOpen}

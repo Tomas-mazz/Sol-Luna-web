@@ -78,3 +78,20 @@
   transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
 }
 
+
+/* CARRITO MOBILE */
+
+.mobile-cart-dropdown {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  transform: translateX(100%);
+}
+
+.mobile-cart-dropdown.open {
+  transform: translateX(0);
+}

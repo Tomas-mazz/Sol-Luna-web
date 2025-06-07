@@ -11,7 +11,6 @@ const navLinks = [
   },
   { label: "Contacto", href: "/contacto" },
   { label: "Sobre Nosotros", href: "/sobre-nosotros" },
-  { label: "Iniciar sesión", href: "/login" },
 ];
 
 export default navLinks;

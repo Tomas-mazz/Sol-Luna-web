@@ -31,10 +31,6 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
 
         {/* Links centro */}
         <DesktopNavLinks navLinks={navLinks} />
-        
-        {/* Login y carrito */}
-        <div className="flex items-center gap-8">
-          <Link href="/login" className="text-gray-300 hover:text-white">Iniciar Sesión</Link>
 
         {/* Carrito */}
         <div className="relative pointer-events-auto">
@@ -52,7 +48,6 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
             cartButtonRef={cartButtonRef}
             cartItems={[]}
            />
-        </div>
         </div>
       </div>
     </nav>

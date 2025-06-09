@@ -3,7 +3,7 @@ export const mateProducts = [
     id: 1,
     name: 'Mate Camionero',
     imageSrc: '/imagenes/image-mate-test.jpg',
-    price: 4000.0,
+    price: 4000,
     description: 'Mate tradicional en calabaza natural.',
     images: ['/imagenes/image-mate-test.jpg']
   },
@@ -11,15 +11,15 @@ export const mateProducts = [
     id: 2,
     name: 'Mate Moderno',
     imageSrc: '/imagenes/image-mate-test.jpg',
-    price: 30.0,
+    price: 2250,
     description: 'Mate de acero inoxidable con diseño minimalista.',
-    images: ['/imagenes/image-mate-test.jpg']
+    images: ['/imagenes/image-mate-test.jpg, /imagenes/image-mate-test.jpg']
   },
   {
     id: 3,
     name: 'Mate de Cerámica',
     imageSrc: '/imagenes/image-mate-test.jpg',
-    price: 28.5,
+    price: 2500,
     description: 'Mate pintado a mano, edición limitada.',
     images: ['/imagenes/image-mate-test.jpg']
   },

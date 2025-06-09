@@ -16,32 +16,6 @@ export default function RootLayout({ children }) {
           </main>
         </Providers>
 
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
         {/* Si en el futuro agregas un Footer global, lo puedes descomentar aquí */}
         {/* <Footer /> */}
       </body>

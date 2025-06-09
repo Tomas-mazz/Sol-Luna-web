@@ -30,7 +30,7 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
         </Link>
 
         {/* Links centro */}
-        <DesktopNavLinks navLinks={navLinks} />
+        <DesktopNavLinks navLinks={navLinks} scrolled={scrolled} />
 
         {/* Carrito */}
         <div className="relative pointer-events-auto">
@@ -40,7 +40,7 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
              onClick={() => setCartOpen(open => !open)}
              aria-label="Ver carrito"
           >
-            <FontAwesomeIcon icon={faShoppingCart} size="lg" color="white" />
+            <FontAwesomeIcon icon={faShoppingCart} size="xl" color="white" />
           </button>
           <CartDropdown
             open={cartOpen}

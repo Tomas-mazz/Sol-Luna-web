@@ -1,14 +1,20 @@
 import '../styles/globals.css';
-import Navbar from '@/components/Navbar/Navbar';
-// import Foooter from '@/components/Footer';
+import Providers from '../components/Providers';
+import Navbar    from '../components/Navbar/Navbar';
 
-// Layout general de la app: incluye Navbar y Footer en todas las páginas.
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className='bg-gray-50 text-gray-900'>
-        <Navbar />  
-        <main className='min-h-screen bg-gray-50'>{children}</main>
+      <body>
+        <Providers>
+          {/* Barra de navegación en todas las páginas */}
+          <Navbar />
+
+          {/* Contenedor principal con fondo y altura mínima */}
+          <main className="min-h-screen bg-gray-200">
+            {children}
+          </main>
+        </Providers>
 
         <br></br>
         <br></br>
@@ -24,8 +30,19 @@ export default function RootLayout({ children }) {
         <br></br>
         <br></br>
         <br></br>
-
-        
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        {/* Si en el futuro agregas un Footer global, lo puedes descomentar aquí */}
         {/* <Footer /> */}
       </body>
     </html>

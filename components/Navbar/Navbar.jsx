@@ -1,21 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DesktopBar from "./Desktop/DesktopBar";
 import MobileBar from "./Mobile/MobileBar";
 import MobileMenu from "./Mobile/MobileMenu";
 import navLinks from "./NavLinksData";
+import useScroll from "@/hooks/useScroll";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = useScroll(40); // Threshold de 40px
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const cartItems = []; //temporal para que no de error
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <>
@@ -33,7 +28,7 @@ export default function Navbar() {
       />
       
       {/* Fondo oscuro para menú mobile */}
-      {menuOpen && (
+      {menuOpen && (  
         <div
           className="fixed inset-0 bg-black/30 z-40 md:hidden"
           onClick={() => setMenuOpen(false)}

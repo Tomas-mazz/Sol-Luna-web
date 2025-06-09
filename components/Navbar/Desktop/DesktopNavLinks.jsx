@@ -3,14 +3,17 @@ import DesktopDropdownMenu from "./DesktopDropdownMenu";
 import styles from '../../../styles/Navbar.module.css';
 import { ChevronDown } from "lucide-react";
 
-export default function DesktopNavLinks({ navLinks }) {
+export default function DesktopNavLinks({ scrolled, navLinks }) {
     
     const centerLinks = navLinks.filter(link => 
     ["Productos", "Contacto", "Sobre Nosotros"].includes(link.label)
     );
 
   return (
-    <div className="flex-1 flex justify-center items-center gap-8">
+    <ul className={`
+        flex space-x-6 transition-all duration-300
+        ${scrolled ? 'text-xl' : 'text-2xl'}
+      `}>
 
       {centerLinks.map(link =>
         link.dropdown 
@@ -41,6 +44,6 @@ export default function DesktopNavLinks({ navLinks }) {
           </Link>
         )
       )}
-    </div>
+    </ul>
   );
 }

@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import FrontSide from './FrontSide';
 import BackSide  from './BackSide';
 
-/**
- * ProductCard wrapper: handles flip state, perspective, and hover effects.
- */
+
 export default function ProductCard({ product, onAddToCart }) {
   const [flipped, setFlipped]     = useState(false);
   const [quantity, setQuantity]   = useState(1);
@@ -19,7 +17,7 @@ export default function ProductCard({ product, onAddToCart }) {
     <div className="relative w-full max-w-xs mx-auto aspect-[3/4] perspective">
       {/*
         Inner container with background, border-radius, shadow, and flip transform.
-        Hover grows and raises shadow on the whole card.
+        Hover grows and raises shadow on the whole card
       */}
       <div
         className={`

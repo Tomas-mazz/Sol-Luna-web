@@ -25,7 +25,7 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
         } 
       `}>
         {/* Logo */}
-        <Link href="/" className="transition-all duration-300">
+        <Link href="#top" className="transition-all duration-300">
           <Image src="/logos/logo.png" alt="Logo" width={logoSize} height={logoSize} />
         </Link>
 

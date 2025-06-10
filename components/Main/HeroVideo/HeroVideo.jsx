@@ -12,7 +12,7 @@ export default function HeroVideo() {
 
       {/* Ejemplo de texto sobre el video */}
       <h1 className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white pointer-events-none">
-        Tu Frase Aquí
+        Frase aca
       </h1>
     </section>
   );

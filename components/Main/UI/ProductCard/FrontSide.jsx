@@ -19,7 +19,7 @@ export default function FrontSide({ name, imageSrc, price, onFlip }) {
       <div className="px-4 pb-4">
         <h3 className="text-lg text-black font-mono mb-2 uppercase truncate">{name}</h3>
         <hr className='text-black'/>
-        <p className="text-black my-2 font-bold">${price.toFixed(2)}</p>
+        <p className="text-black my-2 font-bold">${price}</p>
       </div>
     </div>
   );

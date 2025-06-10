@@ -76,7 +76,7 @@ export default function BackSide({ product, quantity, increase, decrease, onAddT
           onClick={e => { e.stopPropagation(); onAddToCart({ ...product, quantity }); }}
           className="px-4 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition cursor-pointer"
         >
-          Añadir
+          Añadir al carrito
         </button>
       </div>
     </div>

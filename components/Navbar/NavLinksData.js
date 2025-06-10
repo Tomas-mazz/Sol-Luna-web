@@ -3,10 +3,10 @@ const navLinks = [
   { label: "Inicio", href: "/" },
   { label: "Productos", href: "#",
     dropdown: [
-      { label: "Mates", href: "/productos/mates" },
-      { label: "Bombillas", href: "/productos/bombillas" },
-      { label: "Yerberas", href: "/productos/yerberas" },
-      { label: "Materas", href: "/productos/materas" },
+      { label: "Mates", href: "#mates" },
+      { label: "Bombillas", href: "#bombillas" },
+      { label: "Yerberas", href: "#yerberas" },
+      { label: "Materas", href: "#materas" },
     ]
   },
   { label: "Contacto", href: "/contacto" },

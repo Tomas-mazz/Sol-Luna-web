@@ -9,7 +9,7 @@ export default function ProductSection({ title, children }) {
   return (
     <section
       id={sectionId}
-      className="mx-auto w-4/5 py-16"
+      className="mx-auto w-full px-4 py-16 md:w-4/5 md:px-0"
     >
       {/* Título de la sección */}
       <h2 className="text-3xl font-bold mb-8 text-center text-black">
@@ -17,7 +17,9 @@ export default function ProductSection({ title, children }) {
       </h2>
 
       {/* Grid de productos: 2 columnas en móvil, 3 en desktop */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="
+      grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 
+       gap-x-3 gap-y-4 md:gap-6">
         {/* Aquí se insertarán ProductCard u otros elementos hijos */}
         {children}
       </div>

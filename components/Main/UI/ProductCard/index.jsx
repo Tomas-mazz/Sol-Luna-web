@@ -14,7 +14,7 @@ export default function ProductCard({ product, onAddToCart }) {
 
   return (
     // Outer wrapper provides perspective
-    <div className="relative w-full max-w-xs mx-auto aspect-[3/4] perspective">
+    <div className="relative w-full max-w-xs mx-auto min-h-[300px] md:aspect-[3/4] perspective">
       <div
         className={`
           relative w-full h-full

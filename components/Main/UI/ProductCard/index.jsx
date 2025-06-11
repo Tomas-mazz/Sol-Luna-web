@@ -15,10 +15,6 @@ export default function ProductCard({ product, onAddToCart }) {
   return (
     // Outer wrapper provides perspective
     <div className="relative w-full max-w-xs mx-auto aspect-[3/4] perspective">
-      {/*
-        Inner container with background, border-radius, shadow, and flip transform.
-        Hover grows and raises shadow on the whole card
-      */}
       <div
         className={`
           relative w-full h-full

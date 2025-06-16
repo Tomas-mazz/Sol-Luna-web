@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import DesktopNavLinks from "./DesktopNavLinks";
+import useIsTopNavbar from "../../../hooks/useIsTopNavbar";
 import CartDropdown from "./CartDropdown";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
@@ -13,15 +14,15 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
   return (
     <nav className={`
       hidden md:flex
-      fixed z-50 top-0 left-1/2 -translate-x-1/2 justify-center w-screen transition-all duration-300
+      fixed z-50 top-0 left-1/2 -translate-x-1/2 justify-center w-screen text-xl transition-all duration-300
       ${scrolled ? "pt-6" : ""}
     `}>
       <div className={`
         flex items-center justify-between pointer-events-auto transition-all duration-300
         rounded-full
         ${scrolled 
-          ? "max-w-4xl w-full px-8 py-2 shadow-xl border border-gray-200 bg-black"
-          : "max-w-7xl w-full px-12 py-2 text-xl border border-transparent bg-black"
+          ? "max-w-4xl w-full px-8 py-2  shadow-xl border border-gray-200 bg-black"
+          : "max-w-7xl w-full px-12 py-2  border border-transparent bg-black"
         } 
       `}>
         {/* Logo */}
@@ -47,6 +48,7 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
             setOpen={setCartOpen}
             cartButtonRef={cartButtonRef}
             cartItems={[]}
+            scrolled={scrolled}
            />
         </div>
       </div>

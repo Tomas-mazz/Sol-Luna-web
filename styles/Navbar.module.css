@@ -72,11 +72,35 @@
 /* CARRITO */
 
 .cartDropdown {
-  min-height: 3rem;
+  position: absolute;
+  top: 100%;
+  margin-top: 0.5rem;
+  width: 90vw;
+  max-width: 400px;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  z-index: 50;
   max-height: 60vh;
   overflow-y: auto;
-  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+
+  /* Transición suave */
+  transition: left 0.5s ease, transform 0.5s ease;
 }
+
+/* Cuando el navbar está arriba de todo */
+.topCarrito {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Cuando hiciste scroll */
+.scrolledCarrito {
+  left: 0;
+  transform: translateX(0);
+}
+
 
 
 /* CARRITO MOBILE */

@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import CartItemList from "./CartItemList";
 import styles from "../../../styles/Navbar.module.css"
 
-export default function CartDropdown({ cartItems = [], open, setOpen, cartButtonRef }) {
+export default function CartDropdown({ cartItems = [], open, setOpen, cartButtonRef, scrolled}) {
   const dropdownRef = useRef();
   const isEmpty = cartItems.length === 0;
 
@@ -27,10 +27,10 @@ export default function CartDropdown({ cartItems = [], open, setOpen, cartButton
   return open ? (
     <div
       ref={dropdownRef}
-      className={`absolute right-0 mt-2 w-80 max-w-xs bg-white border border-gray-200 rounded-2xl shadow-2xl z-50 animate-fade-in ${styles.cartDropdown}`}
+      className={`${styles.cartDropdown} ${scrolled ? styles.scrolledCarrito : styles.topCarrito}`}
     >
       <div className="p-4">
-        <h3 className="font-semibold text-lg text-black mb-2">Carrito</h3>
+        <h3 className="text-center font-semibold text-2xl text-black mb-2">Carrito</h3>
         <CartItemList items={cartItems} />
       </div>
       <div className="border-t border-gray-200 my-2" />

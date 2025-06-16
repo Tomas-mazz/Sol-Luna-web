@@ -101,6 +101,24 @@
   transform: translateX(0);
 }
 
+@media (min-width: 1480px) and (max-width: 1700px) {
+  .topCarrito,
+  .scrolledCarrito {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1480px) {
+  .cartDropdown {
+    margin-top: 20px;
+    right: 0;
+    left: auto;
+    transform: none;
+  }
+}
+
 
 
 /* CARRITO MOBILE */

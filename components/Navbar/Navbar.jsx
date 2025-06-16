@@ -14,8 +14,10 @@ export default function Navbar() {
 
   return (
     <>
+      <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Barra desktop/tablet */}
       <DesktopBar scrolled={scrolled} navLinks={navLinks} cartOpen={cartOpen} setCartOpen={setCartOpen}/>
+      </div>
 
       {/* Barra inferior mobile */}
       <MobileBar setMenuOpen={setMenuOpen} cartOpen={cartOpen} setCartOpen={setCartOpen} cartItems={cartItems} />

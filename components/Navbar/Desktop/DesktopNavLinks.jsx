@@ -4,41 +4,41 @@ import styles from '../../../styles/Navbar.module.css';
 import { ChevronDown } from "lucide-react";
 
 export default function DesktopNavLinks({ scrolled, navLinks }) {
-    
-    const centerLinks = navLinks.filter(link => 
+  const centerLinks = navLinks.filter(link =>
     ["Productos", "Contacto", "Sobre Nosotros"].includes(link.label)
-    );
+  );
 
   return (
-    <ul className={`
-        flex space-x-6 transition-all duration-300
-        ${scrolled ? 'text-xl' : 'text-2xl'}
-      `}>
-
+    <ul
+      className={`
+        flex gap-4 sm:gap-6 md:gap-8
+        text-base sm:text-lg md:text-xl
+        transition-all duration-300
+        ${scrolled ? "text-base sm:text-lg" : "text-lg sm:text-xl"}
+      `}
+    >
       {centerLinks.map(link =>
-        link.dropdown 
-        ? (
-
+        link.dropdown ? (
           <div className="relative group" key={link.label}>
-            <span className={`font-medium cursor-pointer flex items-center gap-1 ${styles.linkUnderline}`}>
+            <span
+              className={`
+                font-medium cursor-pointer flex items-center gap-1
+                ${styles.linkUnderline}
+              `}
+            >
               {link.label}
-              <ChevronDown 
+              <ChevronDown
                 size={18}
                 className="transition-transform duration-300 group-hover:rotate-180"
               />
             </span>
-
-            {/* Dropdown visible SOLO en hover */}
             <DesktopDropdownMenu items={link.dropdown} />
-
           </div>
-
         ) : (
-
           <Link
             key={link.label}
             href={link.href}
-            className={styles.linkUnderline}
+            className={`${styles.linkUnderline} font-medium`}
           >
             {link.label}
           </Link>

@@ -19,7 +19,7 @@ export default function QuantityControls({ quantity, increase, decrease, onAdd }
       </div>
       <button
         onClick={e => { e.stopPropagation(); onAdd(); }}
-        className="px-4 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition"
+        className="px-4 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition cursor-pointer"
       >
         Añadir al carrito
       </button>

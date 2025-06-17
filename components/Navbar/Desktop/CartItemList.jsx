@@ -11,9 +11,9 @@ export default function CartItemList({ items }) {
         <li key={i} className="flex justify-between items-center text-sm">
           <span className="font-medium">
             {item.name}{" "}
-            <span className="text-gray-500 text-sm">x{item.qty}</span>
+            <span className="text-gray-500 text-sm">x{item.quantity}</span>
           </span>
-          <span>${item.price * item.qty}</span>
+          <span>${item.price * item.quantity}</span>
         </li>
       ))}
     </ul>

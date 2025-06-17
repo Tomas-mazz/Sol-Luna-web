@@ -1,14 +1,20 @@
-import { useRef } from "react";
+'use client';
+
+import { useRef, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import DesktopNavLinks from "./DesktopNavLinks";
 import CartDropdown from "./CartDropdown";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from "../../../context/CartContext";
 
 export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }) {
   const logoSize = scrolled ? 50 : 60;
   const cartButtonRef = useRef();
+
+  // —— aquí obtenemos el carrito directamente del contexto:
+  const { cart: cartItems } = useContext(CartContext);
 
   return (
     <nav className={`
@@ -38,20 +44,33 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
           <button
             ref={cartButtonRef}
             className="coursor-pointer transition-all duration-300"
-             onClick={() => setCartOpen(open => !open)}
-             aria-label="Ver carrito"
+            onClick={() => setCartOpen(open => !open)}
+            aria-label="Ver carrito"
           >
             <FontAwesomeIcon icon={faShoppingCart} size="xl" color="white" />
           </button>
+
+          {/* ← Añadimos el badge verde con la cantidad */}
+          {cartItems.length > 0 && (
+            <span className="
+              absolute -bottom-4 -left-3
+              bg-green-500 text-white text-xs
+              w-5 h-5 flex items-center justify-center
+              rounded-full
+            ">
+              {cartItems.length}
+            </span>
+          )}
+
           <CartDropdown
             open={cartOpen}
             setOpen={setCartOpen}
             cartButtonRef={cartButtonRef}
-            cartItems={[]}
             scrolled={scrolled}
-           />
+          />
         </div>
       </div>
     </nav>
   );
 }
+

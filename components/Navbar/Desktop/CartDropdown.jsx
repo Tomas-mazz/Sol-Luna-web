@@ -1,53 +1,62 @@
-import { useRef, useEffect } from "react";
+'use client';
+
+import { useRef, useEffect, useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
 import CartItemList from "./CartItemList";
-import styles from "../../../styles/Navbar.module.css"
+import styles from "../../../styles/Navbar.module.css";
 
-export default function CartDropdown({ cartItems = [], open, setOpen, cartButtonRef, scrolled}) {
+export default function CartDropdown({ open, setOpen, cartButtonRef, scrolled }) {
+  const { cart } = useContext(CartContext);
   const dropdownRef = useRef();
-  const isEmpty = cartItems.length === 0;
 
+  // Cerrar al click fuera
   useEffect(() => {
     function handleClickOutside(event) {
-      // Chequeo: si el menú está cerrado, no hago nada
       if (!open) return;
-      // Si el click fue dentro del dropdown, no cierro
-      if (dropdownRef.current && dropdownRef.current.contains(event.target)) return;
-      // Si el click fue dentro del botón, no cierro
-      if (cartButtonRef && cartButtonRef.current && cartButtonRef.current.contains(event.target)) return;
-      // Si llegó acá: cerrar
+      if (
+        dropdownRef.current?.contains(event.target) ||
+        cartButtonRef?.current?.contains(event.target)
+      ) return;
       setOpen(false);
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [open, setOpen, cartButtonRef]);
 
-    // Usá cartItems directamente
-  const total = cartItems.reduce((acc, prod) => acc + prod.price * prod.qty, 0);
+  const isEmpty = cart.length === 0;
+  const total = cart.reduce((acc, prod) => acc + prod.price * prod.quantity, 0);
 
-  return open ? (
+  if (!open) return null;
+
+  return (
     <div
       ref={dropdownRef}
       className={`${styles.cartDropdown} ${scrolled ? styles.scrolledCarrito : styles.topCarrito}`}
     >
       <div className="p-4">
         <h3 className="text-center font-semibold text-2xl text-black mb-2">Carrito</h3>
-        <CartItemList items={cartItems} />
+        <CartItemList items={cart} />
       </div>
+
       <div className="border-t border-gray-200 my-2" />
+
       <div className="p-4 flex justify-between items-center text-black">
-        <span className="font-semibold">Total:</span>
+        <span className="text-xl font-semibold">Total:</span>
         <span className="text-xl font-bold">${total}</span>
       </div>
+
       <div className="px-4 pb-4">
-        <button className={`w-full rounded-xl py-3 font-semibold transition
-          ${isEmpty
-            ? "bg-gray-300 text-gray-400 cursor-not-allowed"
-            : "bg-green-600 text-white hover:bg-green-700 cursor-pointer"}
-        `}
-        disabled={isEmpty}>
+        <button
+          className={`w-full rounded-xl py-3 font-semibold transition
+            ${isEmpty
+              ? "bg-gray-300 text-gray-400 cursor-not-allowed"
+              : "bg-green-600 text-white hover:bg-green-700 cursor-pointer"
+            }`}
+          disabled={isEmpty}
+        >
           Pagar
         </button>
       </div>
     </div>
-  ) : null;
+  );
 }

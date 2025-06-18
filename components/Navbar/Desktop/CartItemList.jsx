@@ -11,7 +11,7 @@ export default function CartItemList({ items }) {
     <ul className="flex flex-col gap-4">
       {items.map((item, i) => (
         <li key={i}>
-          <div className="p-4 flex items-center justify-between">
+          <div className="p-4 flex items-center justify-between border-0 border-b border-b-black ">
 
             {/* Imagen a la izquierda */}
             <img

@@ -11,17 +11,26 @@ export default function CartDropdown({ open, setOpen, cartButtonRef, scrolled })
 
   // Cerrar al click fuera
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (!open) return;
-      if (
-        dropdownRef.current?.contains(event.target) ||
-        cartButtonRef?.current?.contains(event.target)
-      ) return;
-      setOpen(false);
+  function handleClickOutside(event) {
+    if (!open) return;
+
+    // solo cerrar en desktop
+    if (window.innerWidth < 768) return;
+
+    // si clicas dentro del carrito o en el botón, no cierra
+    if (
+      dropdownRef.current?.contains(event.target) ||
+      cartButtonRef?.current?.contains(event.target)
+    ) {
+      return;
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [open, setOpen, cartButtonRef]);
+
+    setOpen(false);
+  }
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, [open, setOpen, cartButtonRef]);
 
   const isEmpty = cart.length === 0;
   const total = cart.reduce((acc, prod) => acc + prod.price * prod.quantity, 0);

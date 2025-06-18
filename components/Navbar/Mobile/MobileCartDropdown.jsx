@@ -3,13 +3,12 @@ import CartItemList from "../Desktop/CartItemList";
 
 export default function MobileCartDropdown({ open, setOpen, cartItems = [] }) {
   // Calcula el total
-  const total = cartItems.reduce((acc, prod) => acc + prod.price * prod.qty, 0);
+  const total = cartItems.reduce((acc, prod) => acc + prod.price * prod.quantity, 0);
 
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-[100] bg-white flex flex-col md:hidden transition-all duration-300">
-
 
       {/* Botón cerrar */}
       <button

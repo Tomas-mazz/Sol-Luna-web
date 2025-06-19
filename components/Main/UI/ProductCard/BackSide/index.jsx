@@ -30,7 +30,19 @@ export default function BackSide({
         quantity={quantity}
         increase={increase}
         decrease={decrease}
-        onAdd={() => onAddToCart({ ...product, quantity })}
+        onAdd={() => {
+          // Calculamos precio bruto
+          const bruto = product.price * quantity;
+          // aplicamos el 10% OFF si son 5 o mas
+          const finalPrice = quantity >= 5 ? Number(bruto * 0.9) : bruto;
+
+          // enviamos al carrito el objeto completo con quantity y price ya totalizado
+          onAddToCart({
+            ...product,
+            quantity,
+            price: finalPrice
+          })
+        }}
       />
     </div>
   );

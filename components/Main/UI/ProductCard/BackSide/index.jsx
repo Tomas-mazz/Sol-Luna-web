@@ -9,10 +9,9 @@ export default function BackSide({
   increase,
   decrease,
   onAddToCart,
-  onClose
 }) {
   return (
-    <div className="absolute inset-0 transform rotate-y-180 backface-hidden flex flex-col justify-between p-4">
+    <div className="absolute inset-0 transform rotate-y-180 backface-hidden flex flex-col justify-between p-1 md:p-4">
 
       {/* Imagen o placeholder */}
       <BackImage images={product.images} name={product.name} />

@@ -3,17 +3,17 @@ import { X } from "lucide-react";
 import MobileDropdownMenu from "./MobileDropdownMenu";
 import styles from "../../../styles/Navbar.module.css"
 
-export default function MobileMenu({ menuOpen, setMenuOpen, navLinks }) {
+export default function MobileMenu({ open, setOpen, navLinks }) {
   return (
     <div
       className={`
         ${styles.mobileMenu}
-        ${menuOpen ? styles.mobileMenuOpen : ""}
+        ${open ? styles.mobileMenuOpen : ""}
         md:hidden
       `}
     >
       <button
-        onClick={() => setMenuOpen(false)}
+        onClick={() => setOpen(false)}
         className="self-end mb-8"
         aria-label="Cerrar menú"
       >
@@ -27,14 +27,14 @@ export default function MobileMenu({ menuOpen, setMenuOpen, navLinks }) {
               key={link.label}
               label={link.label}
               items={link.dropdown}
-              onNavigate={() => setMenuOpen(false)}
+              onNavigate={() => setOpen(false)}
             />
           ) : (
             <li key={link.label}>
               <Link
                 href={link.href}
                 className="text-lg font-semibold block py-2"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => setOpen(false)}
               >
                 {link.label}
               </Link>

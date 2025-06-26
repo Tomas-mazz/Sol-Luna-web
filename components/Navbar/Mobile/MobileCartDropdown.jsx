@@ -5,10 +5,9 @@ export default function MobileCartDropdown({ open, setOpen, cartItems = [] }) {
   // Calcula el total
   const total = cartItems.reduce((acc, prod) => acc + prod.price * prod.quantity, 0);
 
-  if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] bg-white flex flex-col md:hidden transition-all duration-300">
+    <div className={`fixed inset-0 z-[100] bg-white flex flex-col md:hidden transition-all duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
 
       {/* Botón cerrar */}
       <button

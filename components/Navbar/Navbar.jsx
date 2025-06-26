@@ -20,7 +20,6 @@ export default function Navbar() {
 
   // 3. Obtener el carrito del contexto
   const { cart } = useContext(CartContext);
-  const cartItems = cart;
 
   // 4. Ref para comparar la longitud previa del carrito
   const prevLength = useRef(cart.length);

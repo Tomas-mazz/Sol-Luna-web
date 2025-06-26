@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import ProductCard from '../UI/ProductCard';
 
 export default function ProductSection({ title, children }) {
   // Genera un id para enlaces de ancla
@@ -9,7 +8,7 @@ export default function ProductSection({ title, children }) {
   return (
     <section
       id={sectionId}
-      className="mx-auto w-4/5 py-16"
+      className="mx-auto w-full sm:w-4/5 py-16 pb-0"
     >
       {/* Título de la sección */}
       <h2 className="text-3xl font-bold mb-8 text-center text-black">

@@ -13,7 +13,7 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
   const logoSize = scrolled ? 50 : 60;
   const cartButtonRef = useRef();
 
-  // —— aquí obtenemos el carrito directamente del contexto:
+  // obtenemos el carrito directamente del contexto:
   const { cart: cartItems } = useContext(CartContext);
 
   return (

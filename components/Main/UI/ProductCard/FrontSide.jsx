@@ -17,7 +17,7 @@ export default function FrontSide({ name, imageSrc, price, onFlip }) {
 
       {/* Nombre y precio */}
       <div className="px-4 pb-4">
-        <h3 className="text-lg text-black font-mono mb-2 uppercase truncate">{name}</h3>
+        <h3 className="text-base md:text-xl text-black font-mono mb-2 truncate">{name}</h3>
         <hr className='text-black'/>
         <p className="text-black my-2 font-bold">${price}</p>
       </div>

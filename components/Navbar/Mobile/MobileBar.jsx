@@ -7,7 +7,7 @@ import MobileCartDropdown from "./MobileCartDropdown";
 
 export default function MobileBar({ setMenuOpen, cartOpen, setCartOpen, cartItems }) {
   return (
-    <div className="fixed bottom-0 left-0 w-full h-16 bg-black/90 flex items-center justify-between px-6 md:hidden z-50 pb-[env(safe-area-inset-bottom)]">
+    <div className="fixed bottom-0 left-0 w-full h-16 bg-black/90 flex items-center justify-between px-6 md:hidden z-50">
 
       {/* Menú hamburguesa */}
       <button

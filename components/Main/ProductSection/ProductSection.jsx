@@ -17,21 +17,8 @@ export default function ProductSection({ title, children }) {
         {title}
       </h2>
 
-      {/* Vista móvil: grid de una columna */}
-      <div className="grid grid-cols-1 gap-6 sm:hidden px-4">
-        {React.Children.map(children, (child, idx) => (
-          <div
-            key={idx}
-            className="cursor-pointer"
-            onClick={() => setSelectedChild(child)}
-          >
-            {child}
-          </div>
-        ))}
-      </div>
-
       {/* Vista desktop/tablet: grid de 2-3 columnas */}
-      <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 gap-6 px-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 px-4">
         {children}
       </div>
 

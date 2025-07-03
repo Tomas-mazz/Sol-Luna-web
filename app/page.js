@@ -3,8 +3,7 @@
 
 import React, {useContext} from "react";
 import HeroVideo from '../components/Main/HeroVideo/HeroVideo';
-import ProductSection from "../components/Main/ProductSection/ProductSection";
-import ProductCard from "../components/Main/UI/ProductCard";
+import ProductSection from "@/components/Main/ProductSection/ProductSection";
 // import BenefitsSection from '../components/Main/BenefitsSection'
 
 import {
@@ -23,15 +22,12 @@ export default function HomePage() {
       <HeroVideo />
 
       {/* Secciones de productos reutilizando ProductSection */}
-      <ProductSection title="Mates">
-        {mateProducts.map(item => (
-          <ProductCard
-            key={item.id}
-            product={item}
-            onAddToCart={addToCart}
-          />
-        ))}
-      </ProductSection>
+      <ProductSection 
+        title="Mates"
+        products={mateProducts}
+        onAddToCart={addToCart}
+      />
+        
 
       {/* Sección de beneficios */}
       {/* <BenefitsSection /> */}

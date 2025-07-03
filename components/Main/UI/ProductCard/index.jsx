@@ -1,44 +1,26 @@
 'use client';
-import React, { useState } from 'react';
-import FrontSide from './FrontSide';
-import BackSide  from './BackSide';
+import React from 'react';
+import { motion } from 'framer-motion';
+import FrontSide from './Front/FrontSide';
 
-
-export default function ProductCard({ product, onAddToCart }) {
-  const [flipped, setFlipped]     = useState(false);
-  const [quantity, setQuantity]   = useState(1);
-
-  const handleFlip = () => setFlipped(prev => !prev);
-  const increase   = () => setQuantity(q => q + 1);
-  const decrease   = () => setQuantity(q => Math.max(1, q - 1));
-
+export default function ProductCard({ product, onClick }) {
   return (
-    // Outer wrapper provides perspective
-    <div className="relative w-full max-w-xs mx-auto min-h-[300px] md:aspect-[3/4] perspective">
-      <div
-        className={`
-          relative w-full h-full
-          bg-white rounded-2xl shadow-lg
-          transform-style-3d duration-500 transition-transform
-          hover:scale-105 hover:shadow-2xl
-          ${flipped ? 'rotate-y-180' : ''}
-        `}
-        style={{ transformStyle: 'preserve-3d' }}
-        onClick={handleFlip}
-      >
+    <motion.div
+      layoutId={`card-container-${product.id}`}
+      onClick={() => onClick(product.id)}
+      style={{ perspective: 1000 }}
+      className="relative w-full max-w-xs mx-auto min-h-[300px] md:aspect-[3/4] cursor-pointer"
+    >
+      {/* Este div reproduce el blanco, redondeo y sombra original */}
+      <div className="relative w-full h-full bg-white rounded-2xl shadow-lg overflow-hidden">
         <FrontSide
           name={product.name}
-          imageSrc={product.imageSrc}
+          imageSrc={product.imageSrc}       // Ojo: ahora sí usamos imageSrc
           price={product.price}
-        />
-        <BackSide
-          product={product}
-          quantity={quantity}
-          increase={increase}
-          decrease={decrease}
-          onAddToCart={onAddToCart}
+          onFlip={() => onClick(product.id)}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
+

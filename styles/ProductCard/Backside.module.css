@@ -1,0 +1,8 @@
+/* Lado trasero: inicio girado 180° */
+.backSide {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}

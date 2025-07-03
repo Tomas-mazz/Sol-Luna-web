@@ -1,6 +1,5 @@
 'use client';
 export default function BackPrice({ price, quantity }) {
-  
   const total = price * quantity;
   const hasDiscount = quantity >= 5;
   const discounted = hasDiscount ? total * 0.9 : total;

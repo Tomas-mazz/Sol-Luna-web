@@ -1,0 +1,7 @@
+/* Lado frontal: oculto al girar */
+.frontSide {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  position: absolute;
+  inset: 0;
+}

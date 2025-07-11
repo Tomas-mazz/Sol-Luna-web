@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { LayoutGroup, AnimatePresence, motion } from 'framer-motion';
 import ProductCard from '../UI/ProductCard';
 import BackSide from '../UI/ProductCard/Back/BackSide';
+import useLockBodyScroll from '../../../hooks/useLockBodyScroll';
+import useEscapeKey from '../../../hooks/useEscKey';
 
 export default function ProductSection({
   title,                   // <-- nuevo
@@ -17,14 +19,15 @@ export default function ProductSection({
   const increase = () => setQuantity((q) => q + 1);
   const decrease = () => setQuantity((q) => Math.max(1, q - 1));
 
-  // Cerrar con tecla Esc
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === 'Escape') setSelectedId(null);
-    };
-    if (selectedId !== null) window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [selectedId]);
+  // Cierra modal con Escape
+    useEscapeKey(() => {
+      if (selectedId !== null) {
+        setSelectedId(null);
+      }
+    });
+
+  // Bloquear scroll mientras modal esta abierto
+  useLockBodyScroll(selectedId !== null);
 
   return (
 <LayoutGroup>
@@ -57,21 +60,31 @@ export default function ProductSection({
             <React.Fragment key="modal">
               {/* Fondo semi-transparente */}
               <motion.div
-                className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                className="fixed inset-0 z-20"
                 onClick={() => setSelectedId(null)}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{
+                  backgroundColor: 'rgba(0,0,0,0)',
+                  backdropFilter: 'blur(0px)',
+                }}
+                animate={{
+                  backgroundColor: 'rgba(0,0,0,0.03)',   // 3% negro
+                  backdropFilter: 'blur(4px)',          // desenfoque leve
+                }}
+                exit={{
+                  backgroundColor: 'rgba(0,0,0,0)',
+                   backdropFilter: 'blur(0px)',
+                }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
               />
 
               {/* Contenedor animado compartido */}
               <motion.div
                 layoutId={`card-container-${selectedId}`}
                 className={`
-                  fixed z-50 bg-white overflow-hidden
-                  inset-0 rounded-none
+                  fixed z-30 bg-white overflow-hidden
+                  inset-0
                   md:inset-auto md:top-1/2 md:left-1/2
-                  md:w-1/2 md:h-4/5 md:-translate-x-1/2 md:-translate-y-1/2
+                  md:w-2/7 md:h-8/9 md:-translate-x-1/2 md:-translate-y-1/2 md:border md:rounded-2xl
                 `}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

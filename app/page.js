@@ -3,7 +3,7 @@
 
 import React, {useContext} from "react";
 import HeroVideo from '../components/Main/HeroVideo/HeroVideo';
-import ProductSection from "@/components/Main/ProductSection/ProductSection";
+import ProductSection from "../components/Main/ProductSection/ProductSection";
 // import BenefitsSection from '../components/Main/BenefitsSection'
 
 import {

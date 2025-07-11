@@ -6,7 +6,7 @@ import DesktopBar from "./Desktop/DesktopBar";
 import MobileBar from "./Mobile/MobileBar";
 import MobileMenu from "./Mobile/MobileMenu";
 import navLinks from "./NavLinksData";
-import useScroll from "@/hooks/useScroll";
+import useScroll from "../../hooks/useScroll";
 import { CartContext } from "../../context/CartContext";
 
 export default function Navbar() {

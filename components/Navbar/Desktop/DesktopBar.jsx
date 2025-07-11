@@ -19,7 +19,7 @@ export default function DesktopBar({ scrolled, navLinks, cartOpen, setCartOpen }
   return (
     <nav className={`
         hidden md:flex
-        fixed z-50 top-0 left-1/2 -translate-x-1/2 justify-center w-full
+        fixed z-10 top-0 left-1/2 -translate-x-1/2 justify-center w-full
         transition-all duration-300
         ${scrolled ? "pt-6" : ""}
     `}>

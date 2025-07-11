@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import styles from '../../../../../styles/ProductCard/Backside.module.css';
+import styles from '../../../../../styles/ProductCard/Backside.module.css'
 import BackPrice from './Backprince';
 import QuantityControls from './QuantityControls';
 import AddToCartButton from './AddToCardButton';

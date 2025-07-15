@@ -4,5 +4,5 @@
   transform-style: preserve-3d;
   position: absolute;
   inset: 0;
-  transform: rotateY(180deg);
+  /* transform: rotateY(180deg); */
 }

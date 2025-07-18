@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-export default function FrontSide({ name, imageSrc, price, onFlip }) {
+export default function FrontSide({ name, imageFrontSide, price, onFlip }) {
   return (
     <div
       className="absolute inset-0 cursor-pointer backface-hidden flex flex-col"
@@ -10,7 +10,7 @@ export default function FrontSide({ name, imageSrc, price, onFlip }) {
       {/* Imagen 3:4 con borde redondeado arriba */}
       <div className="w-full aspect-[3/4] mb-4 overflow-hidden rounded-t-2xl">
         <img
-          src={imageSrc}
+          src={imageFrontSide}
           alt={name}
           className="w-full h-full object-cover"
         />

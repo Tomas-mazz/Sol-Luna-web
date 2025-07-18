@@ -15,7 +15,7 @@ export default function ProductCard({ product, onClick }) {
       <div className="relative w-full h-full bg-white rounded-2xl shadow-lg overflow-hidden">
         <FrontSide
           name={product.name}
-          imageSrc={product.imageSrc}       // Ojo: ahora sí usamos imageSrc
+          imageFrontSide={product.imageFrontSide}       // Ojo: ahora sí usamos imageSrc
           price={product.price}
           onFlip={() => onClick(product.id)}
         />

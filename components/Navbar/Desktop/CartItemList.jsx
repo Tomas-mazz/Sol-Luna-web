@@ -23,7 +23,7 @@ export default function CartItemList({ items }) {
 
             {/* Imagen a la izquierda */}
             <img
-              src={item.imageSrc}
+              src={item.imageFrontSide}
               alt={item.name}
               className="w-16 h-16 object-cover rounded"
             />

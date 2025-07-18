@@ -1,0 +1,24 @@
+.carouselWrapper {
+  width: 100%;
+  height: 16rem;
+  position: relative;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.slide {
+  width: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: #1d4ed8;
+}

@@ -8,6 +8,7 @@ import ProductCarousel from './ProductCarousel';
 import ProductDetails from './ProductDetails';
 import ProductInfo from './ProductInfo';
 
+
 export default function BackSide({
   product,
   quantity,
@@ -17,7 +18,8 @@ export default function BackSide({
 }) {
   return (
     <div className={styles.backSide}>
-      <div className="flex flex-col justify-between h-full p-4">
+      <div className="flex flex-col h-full p-4">
+        <div className="space-y-6">
         {/* Carrusel de imágenes del producto */}
         <ProductCarousel imagesBackSide={product.imagesBackSide} />
 
@@ -28,7 +30,11 @@ export default function BackSide({
 
         {/* Detalles del producto */}
         <ProductDetails id={product.id} />
+        </div>
 
+        <div className='flex-grow'/>
+
+        <div className='flex flex-col w-full space-y-4'>
         {/* Precio total y descuento */}
         <BackPrice price={product.price} quantity={quantity} />
 
@@ -45,6 +51,7 @@ export default function BackSide({
           quantity={quantity}
           onAddToCart={onAddToCart}
         />
+        </div>
       </div>
     </div>
   );

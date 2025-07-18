@@ -1,28 +1,37 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 
-export default function ProductDetails({ id }) {
+export default function ProductDetails() {
+  const [shipping, setShipping] = useState('no');
+  const [custom, setCustom] = useState('no');
+
   return (
-    <div className="flex justify-between items-center">
-      <div className="flex space-x-4">
-        <label className="inline-flex items-center space-x-1">
-          <input
-            type="radio"
-            name={`shipping-${id}`}
-            value="with"
-          />
-          <span>Con envío</span>
-        </label>
-        <label className="inline-flex items-center space-x-1">
-          <input
-            type="radio"
-            name={`shipping-${id}`}
-            value="without"
-            defaultChecked
-          />
-          <span>Sin envío</span>
-        </label>
-      </div> 
-      <button className="text-white border rounded-2xl p-2 bg-blue-600 hover:bg-blue-500">Más detalles</button>
+    <div className="grid grid-cols-2 gap-4 text-black">
+      {/* Opción Envío */}
+      <div className="flex flex-col">
+        <label htmlFor="shipping-select" className="mb-1 font-medium">Envío</label>
+        <select
+          id="shipping-select"
+          value={shipping}
+          onChange={e => setShipping(e.target.value)}
+          className="border rounded-2xl p-2"
+        >
+          <option value="no">No</option>
+          <option value="si">Sí</option>
+        </select>
+      </div>
+      {/* Opción Personalizado */}
+      <div className="flex flex-col">
+        <label htmlFor="custom-select" className="mb-1 font-medium">Personalizado</label>
+        <select
+          id="custom-select"
+          value={custom}
+          onChange={e => setCustom(e.target.value)}
+          className="border rounded-2xl p-2 "
+        >
+          <option value="no">No</option>
+          <option value="si">Sí</option>
+        </select>
+      </div>
     </div>
-  );
-}
+)};

@@ -1,37 +1,40 @@
 'use client';
 import React, { useState } from 'react';
+import HoverDropdown from './HoverDropdown';
 
 export default function ProductDetails() {
-  const [shipping, setShipping] = useState('no');
-  const [custom, setCustom] = useState('no');
+  const [shipping, setShipping] = useState(null);
+  const [custom, setCustom] = useState(null);
+  const options = [{ value: 'si', label: 'Sí' }];
+
+  const chips = [
+    shipping && { key: 'shipping', label: shipping === 'si' ? 'Con envío' : 'Sin envío', clear: () => setShipping(null) },
+    custom &&   { key: 'custom',   label: 'Personalizado',           clear: () => setCustom(null) }
+  ].filter(Boolean);
 
   return (
-    <div className="grid grid-cols-2 gap-4 text-black">
-      {/* Opción Envío */}
-      <div className="flex flex-col">
-        <label htmlFor="shipping-select" className="mb-1 font-medium">Envío</label>
-        <select
-          id="shipping-select"
-          value={shipping}
-          onChange={e => setShipping(e.target.value)}
-          className="border rounded-2xl p-2"
-        >
-          <option value="no">No</option>
-          <option value="si">Sí</option>
-        </select>
+    <>
+      <div className="flex space-x-4 text-black">
+        <HoverDropdown label="Envío"        options={options} onSelect={setShipping} />
+        <HoverDropdown label="Personalizado" options={options} onSelect={setCustom}   />
       </div>
-      {/* Opción Personalizado */}
-      <div className="flex flex-col">
-        <label htmlFor="custom-select" className="mb-1 font-medium">Personalizado</label>
-        <select
-          id="custom-select"
-          value={custom}
-          onChange={e => setCustom(e.target.value)}
-          className="border rounded-2xl p-2 "
-        >
-          <option value="no">No</option>
-          <option value="si">Sí</option>
-        </select>
-      </div>
-    </div>
-)};
+
+      {chips.length > 0 && (
+        <div className="flex items-center space-x-2 mt-2 text-black">
+          {chips.map(c => (
+            <span key={c.key} className="flex items-center bg-black text-white px-3 py-1 rounded text-sm">
+              {c.label}
+              <button className="ml-2 font-bold" onClick={c.clear}>×</button>
+            </span>
+          ))}
+          <button
+            className="ml-4 border px-3 py-1 text-sm uppercase"
+            onClick={() => { setShipping(null); setCustom(null); }}
+          >
+            Clear All
+          </button>
+        </div>
+      )}
+    </>
+  );
+}

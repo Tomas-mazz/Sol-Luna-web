@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { LayoutGroup, AnimatePresence, motion } from 'framer-motion';
 import ProductCard from '../UI/ProductCard';
 import BackSide from '../UI/ProductCard/Back/BackSide';
@@ -7,7 +7,7 @@ import useLockBodyScroll from '../../../hooks/useLockBodyScroll';
 import useEscapeKey from '../../../hooks/useEscKey';
 
 export default function ProductSection({
-  title,                   // <-- nuevo
+  title,                   
   products = [],           // <-- default a array vacío
   onAddToCart
 }) {
